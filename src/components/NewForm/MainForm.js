@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import "./MainForm.css";
 
-const MainForm = () => {
+const MainForm = (props) => {
+  const reactInputRef = useRef();
   const [enteredImage, setEnteredImage] = useState("");
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredDesc, setEnteredDesc] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
   const [isValid, setIsValid] = useState(true);
 
+  const [reactReff, setReactReff] = useState("React Test");
+
+const reactTestHandler = (event) => {
+  setReactReff(event.target.value);
+}
 
   const imageChangehandler = (event) => {
     setEnteredImage(event.target.value);
@@ -54,12 +60,14 @@ const MainForm = () => {
       title: enteredTitle,
       desc: enteredDesc,
       price: enteredPrice,
+      test: reactReff
     };
     if (enteredImage.trim().length === 0) {
       setIsValid(false);
       return;
     }
       console.log(itemData);
+    
   };
 
 
@@ -91,13 +99,19 @@ const MainForm = () => {
             <input type="number" onChange={priceChangeHandler} />
           </div>
 
+        
           <div className="new-form__control">
             <button type="submit">Add Item</button>
           </div>
           <div className="new-form__control">
             <button onClick={titleClearHandler}>Clear</button>
           </div>
-        </div>
+          </div>
+
+          <div className="new-form__control">
+            {/* <label>React Test</label> */}
+            <input type="text" value={reactReff} onChange={reactTestHandler} ref={reactInputRef} disabled/>
+          </div>
       </form>
     </>
   );

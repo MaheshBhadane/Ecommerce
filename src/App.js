@@ -5,6 +5,8 @@ import Cart from './components/Cart';
 import filterList from './components/filterList'
 import NewForm from './components/NewForm/NewForm'
 
+
+
 const App = () => {
 
   const [products, setProducts] = useState([]);
@@ -90,6 +92,7 @@ const removeData = (item) => {
     <div className="App">
       <NewForm />
       <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
+
       <Cart products={cart} changeQuantity={changeQuantity} />
     </div>
   );
