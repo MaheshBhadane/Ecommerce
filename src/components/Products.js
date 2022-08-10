@@ -13,7 +13,7 @@ const Products = ({products, sortProducts, addToCart,removeData}) =>  {
     
     return (
         <div >
-                <center><h1>Shopping Card</h1></center>
+                {/* <center><h1>Shopping Card</h1></center> */}
             <div >
                 <h3>Products</h3>
                 <div>

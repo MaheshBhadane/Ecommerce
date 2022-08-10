@@ -34,8 +34,7 @@ const reactTestHandler = (event) => {
   };
 
   const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
-  
+    setEnteredTitle(event.target.value);  
   };
 
   const descChangeHandler = (event) => {
@@ -62,12 +61,12 @@ const reactTestHandler = (event) => {
       price: enteredPrice,
       test: reactReff
     };
-    if (enteredImage.trim().length === 0) {
+    if (enteredImage.trim().length === 0 || enteredTitle.trim().length ===0 || enteredDesc.trim().length ===0 || enteredPrice.trim().length ===0) {
       setIsValid(false);
       return;
     }
       console.log(itemData);
-    
+     
   };
 
 

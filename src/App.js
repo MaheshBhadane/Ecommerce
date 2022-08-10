@@ -4,7 +4,7 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import filterList from './components/filterList'
 import NewForm from './components/NewForm/NewForm'
-
+import Navbar  from './components/Navbar/Navbar';
 
 
 const App = () => {
@@ -90,6 +90,7 @@ const removeData = (item) => {
 
   return (
     <div className="App">
+      <Navbar />
       <NewForm />
       <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
 

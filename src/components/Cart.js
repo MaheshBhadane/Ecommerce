@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
 import CartItem from './CartItem';
 
 const Cart = ({products, changeQuantity}) => {
@@ -26,11 +25,10 @@ const Cart = ({products, changeQuantity}) => {
     return (
         <Fragment>
             <div id="sidebar" className={classActive ? "active" : ""}>
+            
             <div className="sidebar-content">
-
-                    <div className="toggle-btn" onClick={toggleButton}>
-                        <button className="button">Cart</button>
-
+                    <div className="toggle-btn">
+                    <button className="button" onClick={toggleButton}>CART</button>
                     </div>
                     
                     <div className="cart-content">
