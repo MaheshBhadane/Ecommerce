@@ -53,6 +53,7 @@ const reactTestHandler = (event) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    event.target.reset();
 
     const itemData = {
       image: enteredImage,
@@ -63,13 +64,12 @@ const reactTestHandler = (event) => {
     };
     if (enteredImage.trim().length === 0 || enteredTitle.trim().length ===0 || enteredDesc.trim().length ===0 || enteredPrice.trim().length ===0) {
       setIsValid(false);
-      return;
+      return alert("All fields are mendatory");
+        
     }
       console.log(itemData);
      
   };
-
-
 
 
   return (

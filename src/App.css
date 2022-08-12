@@ -301,10 +301,10 @@ body {
 }
 
 .button {
-  background-color: #011202; 
+  background-color: #171311; 
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 35px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -349,3 +349,8 @@ body {
   }
 }
 
+
+.container {
+  margin: 1rem;
+  text-align: center;
+}

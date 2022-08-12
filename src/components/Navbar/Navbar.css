@@ -1,13 +1,14 @@
 * {
   box-sizing: border-box;
+
 }
 
 body {
-  margin: 0;
+  margin: 5;
 }
 
 .container {
-  margin: 1rem;
+  margin: 10rem;
   text-align: center;
 }
 
@@ -17,8 +18,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  gap: 2rem;
-  padding: 0 1rem;
+  gap: 10rem;
+  padding: 0 6rem;
 }
 
 .site-title {
@@ -39,7 +40,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: .25rem;
+  padding: .50rem;
 }
 
 .nav li.active {
