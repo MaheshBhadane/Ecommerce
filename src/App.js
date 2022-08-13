@@ -3,13 +3,11 @@ import './App.css';
 import Products from './components/Products';
 import Cart from './components/Cart';
 import filterList from './components/filterList'
-import NewForm from './components/NewForm/NewForm'
-import Navbar  from './components/Navbar/Navbar';
-// import { Route, Switch } from "react-router-dom";
-// import Admin from './components/Navbar/Admin';
-// import Home from './components/Navbar/Home';
-// import Shop from './components/Navbar/Shop';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
+import Admin from './components/Navbar/Admin';
+import Navbar from './components/Navbar/Navbar';
+import Shop from './components/Navbar/Shop';
+import Home from './components/Navbar/Home';
 
 const App = () => {
 
@@ -94,26 +92,18 @@ const removeData = (item) => {
 
   return (
     <>
-    <div >
-    <BrowserRouter>
-      <Navbar/>
-    </BrowserRouter>
-      {/* <Switch>
-        <Route exact path='/home'>
-          <Home/>
-        </Route>
-        <Route path='/admin'>
-          <Admin/>
-        </Route>
-        <Route path='/shop'>
-          <Shop/>
-        </Route>
-      </Switch> */}
-      
-      <NewForm />
+    <div>
+    <Navbar/>
+    <Switch>
+       <Route exact path='/' component={Home}/>
+        
+       <Route path='/shop' component={Shop}/>
+          
+       <Route path='/admin' component={Admin}/>
+    </Switch>
       <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
       <Cart products={cart} changeQuantity={changeQuantity} />
-    </div>
+    </div>  
     </>
   );
 }

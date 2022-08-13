@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import NewForm from '../NewForm/NewForm'
+
 
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <>
+      <NewForm />
+    </>
   )
 }
 
