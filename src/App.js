@@ -8,6 +8,8 @@ import Admin from './components/Navbar/Admin';
 import Navbar from './components/Navbar/Navbar';
 import Shop from './components/Navbar/Shop';
 import Home from './components/Navbar/Home';
+import background from "./placeholder.png";
+
 
 const App = () => {
 
@@ -92,7 +94,13 @@ const removeData = (item) => {
 
   return (
     <>
-    <div>
+    <div style={{ backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        height: '100%'}} >
+    {/* <div style={{
+        backgroundColor: 'rgba(0,181,226)',
+      }}> */}
     <Navbar/>
     <Switch>
        <Route exact path='/' component={Home}/>

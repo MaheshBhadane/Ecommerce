@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import CartItem from './CartItem';
 
+
 const Cart = ({products, changeQuantity}) => {
 
     const [classActive, toggleClass] = useState(false);
