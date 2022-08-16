@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
     <div class="content">
-    <center>
+      <center>
       <h2>HOME</h2>
       <Link to="/Admin">
       <img src={Hero} alt="" width="1500" height="500"/>

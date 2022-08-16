@@ -22,7 +22,8 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link to="/admin">ADMIN</Link>
-                    </li>      
+                    </li>   
+                    
                 </ul>
             </div>
         </nav>

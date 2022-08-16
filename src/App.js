@@ -8,6 +8,7 @@ import Admin from './components/Navbar/Admin';
 import Navbar from './components/Navbar/Navbar';
 import Shop from './components/Navbar/Shop';
 import Home from './components/Navbar/Home';
+import Error from './components/Navbar/Error';
 import background from "./placeholder.png";
 
 
@@ -115,6 +116,7 @@ const removeData = (item) => {
        </Route>
           
        <Route path='/admin' component={Admin} exact/>
+       <Route path='*' component={Error} exact/>      
     </Switch>
       
     </div>  
