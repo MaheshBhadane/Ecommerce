@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 import Shop from './components/Navbar/Shop';
 import Home from './components/Navbar/Home';
 import Error from './components/Navbar/Error';
+import ShopDetail from './components/Navbar/ShopDetail';
 import background from "./placeholder.png";
 
 
@@ -110,11 +111,14 @@ const removeData = (item) => {
        <Cart products={cart} changeQuantity={changeQuantity} />
        </Route>
         
-       <Route path='/shop'> <Shop/>
+       <Route path='/shop' exact> <Shop/>
        <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
        <Cart products={cart} changeQuantity={changeQuantity} />
        </Route>
           
+       <Route path='/shop/:shopId' component={ShopDetail} />
+
+
        <Route path='/admin' component={Admin} exact/>
        <Route path='*' component={Error} exact/>      
     </Switch>
