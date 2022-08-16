@@ -15,6 +15,7 @@ const Products = ({products, sortProducts, addToCart,removeData}) =>  {
         <div >
                 {/* <center><h1>Shopping Card</h1></center> */}
             <div >
+                <center><h2>DEAL OF THE DAY</h2></center>
                 <h3>Products</h3>
                 <div>
                     Sort by

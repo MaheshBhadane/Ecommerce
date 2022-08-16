@@ -101,16 +101,22 @@ const removeData = (item) => {
     {/* <div style={{
         backgroundColor: 'rgba(0,181,226)',
       }}> */}
+
     <Navbar/>
     <Switch>
-       <Route exact path='/' component={Home}/>
+       <Route exact path='/'><Home/>
+       <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
+       <Cart products={cart} changeQuantity={changeQuantity} />
+       </Route>
         
-       <Route path='/shop' component={Shop}/>
+       <Route path='/shop'> <Shop/>
+       <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
+       <Cart products={cart} changeQuantity={changeQuantity} />
+       </Route>
           
-       <Route path='/admin' component={Admin}/>
+       <Route path='/admin' component={Admin} exact/>
     </Switch>
-      <Products products={products} sortProducts={sortProducts} addToCart={addToCart} removeData={removeData} />
-      <Cart products={cart} changeQuantity={changeQuantity} />
+      
     </div>  
     </>
   );
