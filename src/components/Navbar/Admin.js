@@ -7,7 +7,6 @@ const Admin = () => {
     <>
     <div><h2><center>ADMIN</center></h2></div>
       <NewForm />
-      
     </>
   )
 }

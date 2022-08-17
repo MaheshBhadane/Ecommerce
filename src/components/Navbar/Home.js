@@ -10,8 +10,7 @@ const Home = () => {
     <div class="content">
       <center>
       <h2>HOME</h2>
-      </center>
-      <img src={Hero} alt="" width="1500" height="500"/>
+      <img src={Hero} alt="" width="1400" height="500"/></center>
       <Link to="/Admin">
       <button type="button">Add New Item Here..</button>
       </Link>

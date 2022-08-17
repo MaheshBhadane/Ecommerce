@@ -8,11 +8,13 @@ const ShopDetail = () => {
   return (
     <>
     <div>
-    <h1>ShopDetail</h1>
+      <center>
+    <h1>ShopCardDetail</h1>
       <img src={product.url} alt='' />
-      <h1 >{product.title}</h1>
-      <h3>{product.price}</h3>
+      <h2>{product.title}</h2>
+      <h3>Price :{product.price}</h3>
       <p>{product.description}</p>
+      </center>
     </div>
     </>
   )

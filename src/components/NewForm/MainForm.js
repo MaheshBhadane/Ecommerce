@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 
 import "./MainForm.css";
 
-const MainForm = (props) => {
+const MainForm = () => {
   const reactInputRef = useRef();
   const [enteredImage, setEnteredImage] = useState("");
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -12,32 +12,28 @@ const MainForm = (props) => {
 
   const [reactReff, setReactReff] = useState("React Test");
 
-const reactTestHandler = (event) => {
-  setReactReff(event.target.value);
-}
+  const reactTestHandler = (event) => {
+    setReactReff(event.target.value);
+  };
 
   const imageChangehandler = (event) => {
-    
-            var fread= new FileReader()
-            fread.readAsDataURL(event.target.files[0]);
-      fread.onloadend = function(event){
-          setEnteredImage(event.target.result);
-      }
-              
+    var fread = new FileReader();
+    fread.readAsDataURL(event.target.files[0]);
+    fread.onloadend = function (event) {
+      setEnteredImage(event.target.result);
+    };
   };
 
   const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);  
+    setEnteredTitle(event.target.value);
   };
 
   const descChangeHandler = (event) => {
     setEnteredDesc(event.target.value);
-  
   };
 
   const priceChangeHandler = (event) => {
     setEnteredPrice(event.target.value);
-   
   };
 
   const titleClearHandler = (event) => {
@@ -53,37 +49,54 @@ const reactTestHandler = (event) => {
       title: enteredTitle,
       desc: enteredDesc,
       price: enteredPrice,
-      test: reactReff
+      test: reactReff,
     };
-    if (enteredImage.trim().length === 0 || enteredTitle.trim().length ===0 || enteredDesc.trim().length ===0 || enteredPrice.trim().length ===0) {
+    // onSaveData(itemData);
+    if (
+      enteredImage.trim().length === 0 ||
+      enteredTitle.trim().length === 0 ||
+      enteredDesc.trim().length === 0 ||
+      enteredPrice.trim().length === 0
+    ) {
       setIsValid(false);
       return alert("All fields are mendatory");
-        
     }
-      console.log(itemData);
+    console.log(itemData);
     
-     
   };
-
 
   return (
     <>
       <form onSubmit={submitHandler}>
         <div className="new-form__controls">
-
           <div className="new-form__control">
             <label style={{ color: !isValid ? "red" : "black" }}> Image </label>
-            <input style={{borderColor: !isValid ? 'red' : 'black',
-        background: !isValid ? 'salmon' : 'transparent'}} type="file" accept="image/*" onChange={imageChangehandler} />
+            <input
+              style={{
+                borderColor: !isValid ? "red" : "black",
+                background: !isValid ? "salmon" : "transparent",
+              }}
+              type="file"
+              accept="image/*"
+              onChange={imageChangehandler}
+            />
           </div>
 
           <div className="new-form__control">
             <label style={{ color: !isValid ? "red" : "black" }}>Title</label>
-            <input style={{borderColor: !isValid ? 'red' : 'black',
-        background: !isValid ? 'salmon' : 'transparent'}} type="text" onChange={titleChangeHandler} />
+            <input
+              style={{
+                borderColor: !isValid ? "red" : "black",
+                background: !isValid ? "salmon" : "transparent",
+              }}
+              type="text"
+              onChange={titleChangeHandler}
+            />
           </div>
           <div className="new-form__control">
-            <label style={{ color: !isValid ? "red" : "black" }}>Description</label>
+            <label style={{ color: !isValid ? "red" : "black" }}>
+              Description
+            </label>
             <input type="text" onChange={descChangeHandler} />
           </div>
 
@@ -92,25 +105,30 @@ const reactTestHandler = (event) => {
             <input type="number" onChange={priceChangeHandler} />
           </div>
 
-        
           <div className="new-form__control">
-            <button type="submit">Add Item</button>
+            <button type="submit" >Add Item</button>
           </div>
           <div className="new-form__control">
             <button onClick={titleClearHandler}>Clear</button>
           </div>
-          </div>
+        </div>
 
-          <div className="new-form__control">
-            {/* <label>React Test</label> */}
-            <input type="text" value={reactReff} onChange={reactTestHandler} ref={reactInputRef} disabled/>
-          </div>
+        <div className="new-form__control">
+          {/* <label>React Test</label> */}
+          <input
+            type="text"
+            value={reactReff}
+            onChange={reactTestHandler}
+            ref={reactInputRef}
+            disabled
+          />
+        </div>
       </form>
       <br></br>
-      <img src={enteredImage} alt="" width="100" height="100"/>
+      <img src={enteredImage} alt="" width="100" height="100" />
       <p>{enteredTitle}</p>
       <p>{enteredPrice}</p>
-          </>
+    </>
   );
 };
 
