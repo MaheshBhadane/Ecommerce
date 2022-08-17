@@ -17,20 +17,13 @@ const reactTestHandler = (event) => {
 }
 
   const imageChangehandler = (event) => {
-    setEnteredImage(event.target.value);
-    if (event.target.value.trim().length > 0) {
-      setIsValid(true);
-      return;
-    }
-  
-    /*if(event.target.name==="img"){
+    
             var fread= new FileReader()
             fread.readAsDataURL(event.target.files[0]);
       fread.onloadend = function(event){
           setEnteredImage(event.target.result);
       }
-    }
-          */
+              
   };
 
   const titleChangeHandler = (event) => {
@@ -68,6 +61,7 @@ const reactTestHandler = (event) => {
         
     }
       console.log(itemData);
+    
      
   };
 
@@ -80,7 +74,7 @@ const reactTestHandler = (event) => {
           <div className="new-form__control">
             <label style={{ color: !isValid ? "red" : "black" }}> Image </label>
             <input style={{borderColor: !isValid ? 'red' : 'black',
-        background: !isValid ? 'salmon' : 'transparent'}} type="file" onChange={imageChangehandler} />
+        background: !isValid ? 'salmon' : 'transparent'}} type="file" accept="image/*" onChange={imageChangehandler} />
           </div>
 
           <div className="new-form__control">
@@ -112,7 +106,11 @@ const reactTestHandler = (event) => {
             <input type="text" value={reactReff} onChange={reactTestHandler} ref={reactInputRef} disabled/>
           </div>
       </form>
-    </>
+      <br></br>
+      <img src={enteredImage} alt="" width="100" height="100"/>
+      <p>{enteredTitle}</p>
+      <p>{enteredPrice}</p>
+          </>
   );
 };
 

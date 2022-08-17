@@ -28,6 +28,22 @@ const Products = ({products, sortProducts, addToCart,removeData}) =>  {
             </div>
             <br></br>
             <CardList products={products} addToCart={addToCart} removeData={removeData}/>
+        
+        <div className="card">
+        <button onClick={() => removeData()} >X</button>
+                <br></br>
+            <img src={"https://i.ibb.co/NNd5wmc/1.png"} className="card-image" alt="product" />
+            <div>
+                {"fffff"}
+            </div>
+                
+            <div>
+                price: 
+                <span>{"1255"}</span>
+            </div>
+            <button onClick={() => addToCart()} >Add to cart</button>
+
+            </div>
             
         </div>
     )

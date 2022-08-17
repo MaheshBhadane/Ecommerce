@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Shop = () => {
@@ -14,9 +13,7 @@ const Shop = () => {
       <li><Link to='/shop/id3'>Babies Clothes</Link></li>
     </ul>
     </center>
-    <Route path={'/Shop/:id'}>
-      <center > <p>Shop here..!! </p> </center>
-    </Route>
+   
     </>
   )
 }

@@ -10,11 +10,12 @@ const Home = () => {
     <div class="content">
       <center>
       <h2>HOME</h2>
-      <Link to="/Admin">
+      </center>
       <img src={Hero} alt="" width="1500" height="500"/>
+      <Link to="/Admin">
       <button type="button">Add New Item Here..</button>
       </Link>
-      </center>
+      
       </div>
 
     </>
