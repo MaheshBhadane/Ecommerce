@@ -121,7 +121,7 @@ const App = () => {
             <Cart products={cart} changeQuantity={changeQuantity} />
           </Route>
 
-          <Route path="/shop/:shopId" component={ShopDetail} exact />
+          <Route path="/shop/:Id" component={ShopDetail} exact />
 
           <Route path="/admin" component={Admin} exact />
           <Route path="*" component={Error} exact />

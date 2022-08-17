@@ -4,17 +4,15 @@ import ItemList from "./ItemName"
 
 const ShopDetail = () => {
   const param= useParams();
-  const product=ItemList[param.shopId]
-
+  const product=ItemList[param.Id]
   return (
     <>
     <div>
     <h1>ShopDetail</h1>
-        <img src={product.url} alt='' />
+      <img src={product.url} alt='' />
       <h1 >{product.title}</h1>
       <h3>{product.price}</h3>
       <p>{product.description}</p>
-
     </div>
     </>
   )

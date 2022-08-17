@@ -11,7 +11,9 @@ const Card = ({data, addToCart, removeData}) => {
             <span onClick={()=>handleDelete(item.id)} > </span>
             </button>
             </div> */}
-            <Link to={"/shop/id"}>
+
+            <Link to={"/shop/"+data.id}>      
+
             <button onClick={() => removeData(data)} >X</button>
             <br></br>
 
