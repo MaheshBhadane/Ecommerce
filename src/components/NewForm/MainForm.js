@@ -19,10 +19,6 @@ const MainForm = () => {
     setValue(String(new URLSearchParams(new URL(window.location.href).search).get('q')));
 }, []);
 
-function handleClick() {
-  console.log(reactInputRef.current?.value);
-}
-
     const imageChangehandler = (event) => {
     var fread = new FileReader();
     fread.readAsDataURL(event.target.files[0]);
@@ -63,7 +59,7 @@ function handleClick() {
     else{
         reactInputRef.current.value=input.email 
        }
-    alert("New Item added to List")  
+    alert("New Item Added..!!")  
   
     if(
       enteredImage.trim().length === 0 ||
@@ -119,7 +115,7 @@ function handleClick() {
           </div>
 
           <div className="new-form__control">
-            <button onClick={()=>handleClick()} type="submit" >Add Item</button>
+            <button type="submit" >Add Item</button>
           </div>
           <div className="new-form__control">
             <button onClick={titleClearHandler}>Clear</button>
