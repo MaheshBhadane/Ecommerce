@@ -5,17 +5,16 @@
 ### Technologies Used :
   * React-JS
   * React Hooks
-  * Netlify.com (for hosting)
   
 ### How to Run Locally :
 
 1. Clone the Repository
   
-     `git clone https://github.com/rajat2502/shopping-cart-react`
+     `git clone https://github.com/MaheshBhadane/Ecommerce`
 
 2. cd into Events-Console
   
-      `cd shopping-cart-react`
+      `cd Ecommerce`
       
 3. Install all dependencies
       

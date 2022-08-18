@@ -2,8 +2,6 @@ import React, { useRef, useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import products from '../products.json'
 import "./MainForm.css";
-// import { useSearchParams } from "react-router-dom";
-
 
 const MainForm = () => {
   const reactInputRef = useRef("React Test");
