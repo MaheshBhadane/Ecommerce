@@ -17,11 +17,11 @@ const MainForm = () => {
 
   useEffect(() => {
     setValue(
-      String(new URLSearchParams(new URL(window.location.href).search).get("q"))
+      //String(new URLSearchParams(new URL(window.location.href).search).get("q"))
+      input.email
     );
-    // console.log(      String(new URLSearchParams(new URL(window.location.href).search).get("q")))
-  }, []);
-// console.log("value",value);
+  }, [input.email]);
+  //  [input.email]
 
   const imageChangehandler = (event) => {
     var fread = new FileReader();
