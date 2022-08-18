@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect} from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import products from '../products.json'
+import products from "../products.json";
 import "./MainForm.css";
 
 const MainForm = () => {
@@ -13,13 +13,17 @@ const MainForm = () => {
   const [enteredPrice, setEnteredPrice] = useState("");
   const [isValid, setIsValid] = useState(true);
 
-  const [value, setValue] = useState("React Test");
+  const [value, setValue] = useState();
 
   useEffect(() => {
-    setValue(String(new URLSearchParams(new URL(window.location.href).search).get('q')));
-}, []);
+    setValue(
+      String(new URLSearchParams(new URL(window.location.href).search).get("q"))
+    );
+    // console.log(      String(new URLSearchParams(new URL(window.location.href).search).get("q")))
+  }, []);
+// console.log("value",value);
 
-    const imageChangehandler = (event) => {
+  const imageChangehandler = (event) => {
     var fread = new FileReader();
     fread.readAsDataURL(event.target.files[0]);
     fread.onloadend = function (event) {
@@ -46,22 +50,23 @@ const MainForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     event.target.reset();
- 
+
     products.push({
       url: enteredImage,
       title: enteredTitle,
       desc: enteredDesc,
       price: enteredPrice,
-    })
-    if(input.email===undefined){
-      reactInputRef.current.value="React Test"
-      }
-    else{
-        reactInputRef.current.value=input.email 
-       }
-    alert("New Item Added..!!")  
-  
-    if(
+    });
+
+    // console.log(reactInputRef);
+    if (input.email === undefined) {
+      reactInputRef.current.value = "React Test";
+    } else {
+      reactInputRef.current.value = input.email;
+    }
+    alert("New Item Added..!!");
+
+    if (
       enteredImage.trim().length === 0 ||
       enteredTitle.trim().length === 0 ||
       enteredDesc.trim().length === 0 ||
@@ -71,7 +76,7 @@ const MainForm = () => {
       return alert("All fields are mendatory");
     }
 
-    console.log(reactInputRef.current.value);
+    // console.log(reactInputRef.current.value);
   };
 
   return (
@@ -115,7 +120,7 @@ const MainForm = () => {
           </div>
 
           <div className="new-form__control">
-            <button type="submit" >Add Item</button>
+            <button type="submit">Add Item</button>
           </div>
           <div className="new-form__control">
             <button onClick={titleClearHandler}>Clear</button>
@@ -123,15 +128,7 @@ const MainForm = () => {
         </div>
 
         <div className="new-form__control">
-          {/* <label>React Test</label> */}
-          <input
-            type="text"
-            // value={reactReff}
-            // onChange={reactTestHandler}
-            value={value}
-            ref={reactInputRef}
-            disabled
-          />
+          <input type="text" value={value} ref={reactInputRef} disabled />
         </div>
       </form>
       <br></br>
