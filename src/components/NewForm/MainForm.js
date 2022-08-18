@@ -1,20 +1,29 @@
 import React, { useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import products from '../products.json'
 import "./MainForm.css";
+// import { useSearchParams } from "react-router-dom";
+
 
 const MainForm = () => {
-  const reactInputRef = useRef();
+  const reactInputRef = useRef("React Test");
+  const input = useParams();
+
   const [enteredImage, setEnteredImage] = useState("");
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredDesc, setEnteredDesc] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
   const [isValid, setIsValid] = useState(true);
 
-  const [reactReff, setReactReff] = useState("React Test");
+  // const [reactReff, setReactReff] = useState();
 
-  const reactTestHandler = (event) => {
-    setReactReff(event.target.value);
-  };
+//   useEffect(() => {
+//     setReactReff(String(new URLSearchParams(new URL(window.location.href).search).get('q')));
+// }, [reactReff]);
+
+  // const reactTestHandler = (event) => {
+  //   setReactReff(event.target.value);
+  // };
 
   const imageChangehandler = (event) => {
     var fread = new FileReader();
@@ -50,18 +59,15 @@ const MainForm = () => {
       desc: enteredDesc,
       price: enteredPrice,
     })
+    if(input.email===undefined){
+      reactInputRef.current.value="React Test"
+      }
+    else{
+        reactInputRef.current.value=input.email 
+       }
     alert("New Item added to List")  
   
-
-    const itemData = {
-      image: enteredImage,
-      title: enteredTitle,
-      desc: enteredDesc,
-      price: enteredPrice,
-      test: reactReff,
-    };
-    // onSaveData(itemData);
-    if (
+    if(
       enteredImage.trim().length === 0 ||
       enteredTitle.trim().length === 0 ||
       enteredDesc.trim().length === 0 ||
@@ -70,8 +76,8 @@ const MainForm = () => {
       setIsValid(false);
       return alert("All fields are mendatory");
     }
-    console.log(itemData);
-    
+
+    console.log(reactInputRef.current.value);
   };
 
   return (
@@ -126,8 +132,8 @@ const MainForm = () => {
           {/* <label>React Test</label> */}
           <input
             type="text"
-            value={reactReff}
-            onChange={reactTestHandler}
+            // value={reactReff}
+            // onChange={reactTestHandler}
             ref={reactInputRef}
             disabled
           />
