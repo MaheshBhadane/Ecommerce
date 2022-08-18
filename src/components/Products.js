@@ -43,10 +43,10 @@ const Products = ({ products, sortProducts, addToCart, removeData }) => {
         removeData={removeData}
       />
 
-      {/* Form card */}
+      {/* {/* Form card
       <div className="card">
         {/* oonSaveData={saveDataHandler} */}
-        <button onClick={() => removeData()}>X</button>
+        {/* <button onClick={() => removeData()}>X</button>
         <br></br>
         <img src={"item.image"} className="card-image" alt="product" />
         <div>{"item.title"}</div>
@@ -57,6 +57,8 @@ const Products = ({ products, sortProducts, addToCart, removeData }) => {
         </div>
         <button onClick={() => addToCart()}>Add to cart</button>
       </div>
+    </div>   */}
+    
     </div>
   );
 };

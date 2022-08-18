@@ -10,6 +10,7 @@ const Card = ({data, addToCart, removeData}) => {
             <span onClick={()=>handleDelete(item.id)} > </span>
             </button>
             </div> */}
+            
             <div className="card">
                  
             <center><button onClick={() => removeData(data)} >X</button>
@@ -24,8 +25,6 @@ const Card = ({data, addToCart, removeData}) => {
             </center>
             
             </div>  
-         
-
         
             </>
         

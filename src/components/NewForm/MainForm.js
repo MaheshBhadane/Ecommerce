@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-
+import products from '../products.json'
 import "./MainForm.css";
 
 const MainForm = () => {
@@ -43,6 +43,15 @@ const MainForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     event.target.reset();
+ 
+    products.push({
+      url: enteredImage,
+      title: enteredTitle,
+      desc: enteredDesc,
+      price: enteredPrice,
+    })
+    alert("New Item added to List")  
+  
 
     const itemData = {
       image: enteredImage,
