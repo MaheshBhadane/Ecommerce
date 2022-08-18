@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import products from '../products.json'
 import "./MainForm.css";
@@ -15,17 +15,17 @@ const MainForm = () => {
   const [enteredPrice, setEnteredPrice] = useState("");
   const [isValid, setIsValid] = useState(true);
 
-  // const [reactReff, setReactReff] = useState();
+  const [value, setValue] = useState("React Test");
 
-//   useEffect(() => {
-//     setReactReff(String(new URLSearchParams(new URL(window.location.href).search).get('q')));
-// }, [reactReff]);
+  useEffect(() => {
+    setValue(String(new URLSearchParams(new URL(window.location.href).search).get('q')));
+}, []);
 
-  // const reactTestHandler = (event) => {
-  //   setReactReff(event.target.value);
-  // };
+function handleClick() {
+  console.log(reactInputRef.current?.value);
+}
 
-  const imageChangehandler = (event) => {
+    const imageChangehandler = (event) => {
     var fread = new FileReader();
     fread.readAsDataURL(event.target.files[0]);
     fread.onloadend = function (event) {
@@ -121,7 +121,7 @@ const MainForm = () => {
           </div>
 
           <div className="new-form__control">
-            <button type="submit" >Add Item</button>
+            <button onClick={()=>handleClick()} type="submit" >Add Item</button>
           </div>
           <div className="new-form__control">
             <button onClick={titleClearHandler}>Clear</button>
@@ -134,6 +134,7 @@ const MainForm = () => {
             type="text"
             // value={reactReff}
             // onChange={reactTestHandler}
+            value={value}
             ref={reactInputRef}
             disabled
           />

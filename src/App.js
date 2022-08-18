@@ -11,7 +11,6 @@ import Home from "./components/Navbar/Home";
 import Error from "./components/Navbar/Error";
 import ShopDetail from "./components/Navbar/ShopDetail";
 import background from "./placeholder.png";
-import MainForm from "./components/NewForm/MainForm";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -124,10 +123,9 @@ const App = () => {
 
           <Route path="/shop/:Id" component={ShopDetail} exact />
 
-          <Route path="/admin" component={Admin} exact />
+          <Route path="/admin" component={Admin} exact />         
+          <Route path="/admin/:email" component={Admin} exact />         
 
-          <Route path="/admin/:usrEmail" component={MainForm} exact />
-          
           <Route path="*" component={Error} exact />
         </Switch>
       </div>
