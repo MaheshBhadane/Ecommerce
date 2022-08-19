@@ -1,16 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { useState } from 'react';
 
 const Card = ({ data, addToCart, removeData }) => {
   return (
     <>
-      {/* <div>
-            <button> 
-            <span onClick={()=>handleDelete(item.id)} > </span>
-            </button>
-            </div> */}
-
       <div className="card">
         <center>
           <button onClick={() => removeData(data)}>X</button>

@@ -27,7 +27,7 @@ const Cart = ({ products, changeQuantity }) => {
         <div className="sidebar-content">
           <div className="toggle-btn">
             <button className="button" onClick={toggleButton}>
-              CART
+              CART {products.length}
             </button>
           </div>
 

@@ -131,10 +131,12 @@ const MainForm = () => {
           <input type="text" value={value} ref={reactInputRef} disabled />
         </div>
       </form>
-      <br></br>
-      <img src={enteredImage} alt="" width="100" height="100" />
-      <p>{enteredTitle}</p>
-      <p>{enteredPrice}</p>
+      <div>
+        <br></br>
+        <img src={enteredImage} alt="" width="100" height="100" />
+        <p>{enteredTitle}</p>
+        <p>{enteredPrice}</p>
+      </div>
     </>
   );
 };

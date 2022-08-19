@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import products from "../products.json";
 
-
 const ShopDetail = () => {
   const param = useParams();
   const product = products[param.Id];

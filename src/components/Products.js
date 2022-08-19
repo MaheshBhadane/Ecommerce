@@ -3,22 +3,11 @@ import CardList from "./CardList";
 
 const Products = ({ products, sortProducts, addToCart, removeData }) => {
   const [value, setValue] = useState("Select");
-  // const [lists,setLists] = useState("");
 
   const setList = (e) => {
     setValue(e.target.value);
     sortProducts(e.target.value);
   };
-
-  // const saveDataHandler = (enteredData) =>
-  // {
-  //     const itemData = {
-  //         ...enteredData,
-  //         id:lists.length
-
-  //     };
-  //     setLists([itemData,...lists])
-  // };
 
   return (
     <div>
@@ -28,7 +17,7 @@ const Products = ({ products, sortProducts, addToCart, removeData }) => {
         </center>
         <h3>Products</h3>
         <div>
-          Sort by : 
+          Sort by :
           <select value={value} onChange={setList}>
             <option value="Select">Filter</option>
             <option value="High to Low">High to Low</option>
@@ -42,23 +31,6 @@ const Products = ({ products, sortProducts, addToCart, removeData }) => {
         addToCart={addToCart}
         removeData={removeData}
       />
-
-      {/* {/* Form card
-      <div className="card">
-        {/* oonSaveData={saveDataHandler} */}
-        {/* <button onClick={() => removeData()}>X</button>
-        <br></br>
-        <img src={"item.image"} className="card-image" alt="product" />
-        <div>{"item.title"}</div>
-
-        <div>
-          price:
-          <span>{"item.price"}</span>
-        </div>
-        <button onClick={() => addToCart()}>Add to cart</button>
-      </div>
-    </div>   */}
-    
     </div>
   );
 };

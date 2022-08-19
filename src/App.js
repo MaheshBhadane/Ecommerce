@@ -15,7 +15,6 @@ import background from "./placeholder.png";
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  // const [lists,setLists] =useState(true);
 
   useEffect(() => {
     setProducts(filterList([], null));
@@ -48,12 +47,6 @@ const App = () => {
     productList[index].quantity++;
     setCart(productList);
   };
-
-  //   const removeData = (item) => {
-  //     setLists(lists.filter((list)=>
-  //     list.item!== item
-  // ))
-  //   }
 
   const removeData = (item) => {
     const productList = [...cart];
@@ -92,10 +85,6 @@ const App = () => {
           height: "100%",
         }}
       >
-        {/* <div style={{
-        backgroundColor: 'rgba(0,181,226)',
-      }}> */}
-
         <Navbar />
         <Switch>
           <Route exact path="/">
@@ -123,8 +112,8 @@ const App = () => {
 
           <Route path="/shop/:Id" component={ShopDetail} exact />
 
-          <Route path="/admin" component={Admin} exact />         
-          <Route path="/admin/:email" component={Admin} exact />         
+          <Route path="/admin" component={Admin} exact />
+          <Route path="/admin/:email" component={Admin} exact />
 
           <Route path="*" component={Error} exact />
         </Switch>
