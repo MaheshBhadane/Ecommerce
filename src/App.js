@@ -13,6 +13,8 @@ import ShopDetail from "./components/Navbar/ShopDetail";
 import background from "./placeholder.png";
 import { ProductContext } from "./context/ProductContext";
 import { CartContext } from "./context/CartContextProvider";
+import ErrorUi from "./ErrorUi";
+//import Hero from "./Hero"
 
 const App = () => {
 
@@ -26,61 +28,6 @@ const App = () => {
     setProducts(filterList([], null));
   }, [setProducts]);
 
-  // const sortProducts = (method) => {
-  //   const array = products;
-
-  //   /*Product sorting*/
-
-  //   if (method === "Low to High") {
-  //     array.sort(function (a, b) {
-  //       return a.price - b.price;
-  //     });
-  //   } else if (method === "High to Low") {
-  //     array.sort(function (a, b) {
-  //       return b.price - a.price;
-  //     });
-  //   }
-  //   setProducts(array);
-  // };
-
-  // const addToCart = (item) => {
-  //   const productList = [...cart];
-
-  //   if (!productList.includes(item)) {
-  //     productList.push(item);
-  //   }
-  //   const index = productList.indexOf(item);
-  //   productList[index].quantity++;
-  //   setCart(productList);
-  // };
-
-  //  const removeData = (item) => {
-  //   const productList = [...cart];
-
-  //   if (!productList.includes(item)) {
-  //     productList.push(item);
-  //   }
-  //   const index = productList.indexOf(item);
-  //   productList[index].quantity--;
-  //   setCart(productList);
-  // };
-
-  // const changeQuantity = (item, e) => {
-  //   const productList = [...cart];
-  //   const index = productList.indexOf(item);
-
-  //   if (e === "+") {
-  //     productList[index].quantity++;
-  //   } else {
-  //     if (productList[index].quantity > 1) {
-  //       productList[index].quantity--;
-  //     } else {
-  //       productList.splice(index, 1);
-  //     }
-  //   }
-  //   setCart(productList);
-  // };
-
   return (
     <>
       <div
@@ -91,32 +38,21 @@ const App = () => {
           height: "100%",
         }}
       >
+        <ErrorUi>
+          {/* <Hero heroname="mahesh" />
+           <Hero heroname="rahul" />  */}
         <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />
-            <Products
-              products={products}/>
-              {/* sortProducts={sortProducts}
-              addToCart={addToCart}
-             removeData={removeData}
-            /> */}
-
+            <Products products={products}/>
             <Cart products={cart}  />
-            {/* changeQuantity={changeQuantity} */}
           </Route>
 
           <Route path="/shop" exact>
             <Shop />
             <Products products={products}/>
-              {/* //
-              //sortProducts={sortProducts}
-              // addToCart={addToCart}
-              //removeData={removeData}
-            /> */}
-
             <Cart  products={cart}/>
-            {/*  changeQuantity={changeQuantity} */}
           </Route>
 
           <Route path="/shop/:Id" component={ShopDetail} exact />
@@ -124,6 +60,7 @@ const App = () => {
           <Route path="/admin/:email" component={Admin} exact />
           <Route path="*" component={Error} exact />
         </Switch>
+        </ErrorUi>
       </div>
     </>
   );

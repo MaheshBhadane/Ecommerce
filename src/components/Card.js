@@ -5,7 +5,6 @@ import { CartContext } from "../context/CartContextProvider";
 const Card = ({ data }) => {
   const {addToCart,removeData} = useContext(CartContext)
  
-  //console.log(cart)
   return (
     <>
       <div className="card">

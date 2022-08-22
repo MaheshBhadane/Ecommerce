@@ -1,14 +1,10 @@
 import React, { useState, useContext} from "react";
 import CardList from "./CardList";
 import { ProductContext } from "../context/ProductContext";
-// import { CartContext } from "../context/CartContext";
 
 const Products = () => {
 
   const {sortProducts} = useContext(ProductContext)
-  // const {} = useContext(CartContext)
-
-
   const [value, setValue] = useState("Select");
 
   const setList = (e) => {
@@ -34,10 +30,6 @@ const Products = () => {
       </div>
       <br></br>
       <CardList/>
-      {/* //   products={products}
-      //   addToCart={addToCart}
-      //   removeData={removeData}
-      // />     */}
     </div>
   );
 };

@@ -12,13 +12,7 @@ const Navbar = () => {
             <span>C</span>ard
           </h2>
         </div>
-        {/* <div className="nav">
-        <input
-          type="text"
-          placeholder="Search here"
-          name="search"
-           />
-           </div> */}
+        
         <div className="nav">
           <ul>
             <li>
