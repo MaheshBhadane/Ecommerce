@@ -1,7 +1,11 @@
-import React, { Fragment } from "react";
+import React, { useContext,Fragment } from "react";
 import Card from "./Card";
+import { ProductContext } from "../context/ProductContext";
+// import { CartContext } from "../context/CartContext";
 
-const CardList = ({ products, addToCart, removeData }) => {
+const CardList = () => {
+  const {products} = useContext(ProductContext)
+
   return (
     <Fragment>
       {
@@ -12,8 +16,8 @@ const CardList = ({ products, addToCart, removeData }) => {
                 <Card
                   key={item.id}
                   data={item}
-                  addToCart={addToCart}
-                  removeData={removeData}
+                  // addToCart={addToCart}
+                  // removeData={removeData}
                 />
               );
             })}

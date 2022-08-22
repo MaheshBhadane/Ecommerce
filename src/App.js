@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "./App.css";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
@@ -11,69 +11,75 @@ import Home from "./components/Navbar/Home";
 import Error from "./components/Navbar/Error";
 import ShopDetail from "./components/Navbar/ShopDetail";
 import background from "./placeholder.png";
+import { ProductContext } from "./context/ProductContext";
+import { CartContext } from "./context/CartContextProvider";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+
+  const {products, setProducts} = useContext(ProductContext)
+  // const [products, setProducts] = useState([]);
+  
+  const {cart} = useContext(CartContext)
+  //const [cart, setCart] = useState([]);
 
   useEffect(() => {
     setProducts(filterList([], null));
-  }, []);
+  }, [setProducts]);
 
-  const sortProducts = (method) => {
-    const array = products;
+  // const sortProducts = (method) => {
+  //   const array = products;
 
-    /*Product sorting*/
+  //   /*Product sorting*/
 
-    if (method === "Low to High") {
-      array.sort(function (a, b) {
-        return a.price - b.price;
-      });
-    } else if (method === "High to Low") {
-      array.sort(function (a, b) {
-        return b.price - a.price;
-      });
-    }
-    setProducts(array);
-  };
+  //   if (method === "Low to High") {
+  //     array.sort(function (a, b) {
+  //       return a.price - b.price;
+  //     });
+  //   } else if (method === "High to Low") {
+  //     array.sort(function (a, b) {
+  //       return b.price - a.price;
+  //     });
+  //   }
+  //   setProducts(array);
+  // };
 
-  const addToCart = (item) => {
-    const productList = [...cart];
+  // const addToCart = (item) => {
+  //   const productList = [...cart];
 
-    if (!productList.includes(item)) {
-      productList.push(item);
-    }
-    const index = productList.indexOf(item);
-    productList[index].quantity++;
-    setCart(productList);
-  };
+  //   if (!productList.includes(item)) {
+  //     productList.push(item);
+  //   }
+  //   const index = productList.indexOf(item);
+  //   productList[index].quantity++;
+  //   setCart(productList);
+  // };
 
-  const removeData = (item) => {
-    const productList = [...cart];
+  //  const removeData = (item) => {
+  //   const productList = [...cart];
 
-    if (!productList.includes(item)) {
-      productList.push(item);
-    }
-    const index = productList.indexOf(item);
-    productList[index].quantity--;
-    setCart(productList);
-  };
+  //   if (!productList.includes(item)) {
+  //     productList.push(item);
+  //   }
+  //   const index = productList.indexOf(item);
+  //   productList[index].quantity--;
+  //   setCart(productList);
+  // };
 
-  const changeQuantity = (item, e) => {
-    const productList = [...cart];
-    const index = productList.indexOf(item);
+  // const changeQuantity = (item, e) => {
+  //   const productList = [...cart];
+  //   const index = productList.indexOf(item);
 
-    if (e === "+") {
-      productList[index].quantity++;
-    } else {
-      if (productList[index].quantity > 1) {
-        productList[index].quantity--;
-      } else {
-        productList.splice(index, 1);
-      }
-    }
-    setCart(productList);
-  };
+  //   if (e === "+") {
+  //     productList[index].quantity++;
+  //   } else {
+  //     if (productList[index].quantity > 1) {
+  //       productList[index].quantity--;
+  //     } else {
+  //       productList.splice(index, 1);
+  //     }
+  //   }
+  //   setCart(productList);
+  // };
 
   return (
     <>
@@ -90,31 +96,32 @@ const App = () => {
           <Route exact path="/">
             <Home />
             <Products
-              products={products}
-              sortProducts={sortProducts}
+              products={products}/>
+              {/* sortProducts={sortProducts}
               addToCart={addToCart}
-              removeData={removeData}
-            />
-            <Cart products={cart} changeQuantity={changeQuantity} />
+             removeData={removeData}
+            /> */}
+
+            <Cart products={cart}  />
+            {/* changeQuantity={changeQuantity} */}
           </Route>
 
           <Route path="/shop" exact>
-            {" "}
             <Shop />
-            <Products
-              products={products}
-              sortProducts={sortProducts}
-              addToCart={addToCart}
-              removeData={removeData}
-            />
-            <Cart products={cart} changeQuantity={changeQuantity} />
+            <Products products={products}/>
+              {/* //
+              //sortProducts={sortProducts}
+              // addToCart={addToCart}
+              //removeData={removeData}
+            /> */}
+
+            <Cart  products={cart}/>
+            {/*  changeQuantity={changeQuantity} */}
           </Route>
 
           <Route path="/shop/:Id" component={ShopDetail} exact />
-
           <Route path="/admin" component={Admin} exact />
           <Route path="/admin/:email" component={Admin} exact />
-
           <Route path="*" component={Error} exact />
         </Switch>
       </div>

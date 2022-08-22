@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import CardList from "./CardList";
+import { ProductContext } from "../context/ProductContext";
+// import { CartContext } from "../context/CartContext";
 
-const Products = ({ products, sortProducts, addToCart, removeData }) => {
+const Products = () => {
+
+  const {sortProducts} = useContext(ProductContext)
+  // const {} = useContext(CartContext)
+
+
   const [value, setValue] = useState("Select");
 
   const setList = (e) => {
@@ -17,7 +24,7 @@ const Products = ({ products, sortProducts, addToCart, removeData }) => {
         </center>
         <h3>Products</h3>
         <div>
-          Sort by :
+          Sort by : 
           <select value={value} onChange={setList}>
             <option value="Select">Filter</option>
             <option value="High to Low">High to Low</option>
@@ -26,11 +33,11 @@ const Products = ({ products, sortProducts, addToCart, removeData }) => {
         </div>
       </div>
       <br></br>
-      <CardList
-        products={products}
-        addToCart={addToCart}
-        removeData={removeData}
-      />
+      <CardList/>
+      {/* //   products={products}
+      //   addToCart={addToCart}
+      //   removeData={removeData}
+      // />     */}
     </div>
   );
 };

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContextProvider";
 
-const Card = ({ data, addToCart, removeData }) => {
+const Card = ({ data }) => {
+  const {addToCart,removeData} = useContext(CartContext)
+ 
+  //console.log(cart)
   return (
     <>
       <div className="card">
