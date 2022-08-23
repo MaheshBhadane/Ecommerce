@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContextProvider";
 
 const Card = ({ data }) => {
   const {addToCart,removeData} = useContext(CartContext)
- 
+  const [buttonText, setButtonText] = useState('Add to cart');
+
   return (
     <>
       <div className="card">
@@ -20,7 +21,12 @@ const Card = ({ data }) => {
             price:
             <span>{data.price}</span>
           </div>
-          <button onClick={() => addToCart(data)}>Add to cart</button>
+          {/* <button onClick={() => addToCart(data)} >Add to cart</button> */}
+          <button onClick={() => {
+            addToCart(data);
+            setButtonText('Added to cart');
+          }} 
+        >{buttonText}</button>
         </center>
       </div>
     </>
