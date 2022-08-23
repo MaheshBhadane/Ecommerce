@@ -14,7 +14,7 @@ import background from "./placeholder.png";
 import { ProductContext } from "./context/ProductContext";
 import { CartContext } from "./context/CartContextProvider";
 import ErrorUi from "./ErrorUi";
-//import Hero from "./Hero"
+// import Hero from "./Hero"
 
 const App = () => {
 

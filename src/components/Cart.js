@@ -8,7 +8,6 @@ const Cart = ({ products }) => {
 
   const {changeQuantity} = useContext(CartContext)
 
-
   const toggleButton = () => {
     toggleClass(!classActive);
   };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import error from './ErrorBoundary.gif'
 
 class ErrorUi extends Component {
 
@@ -18,7 +19,12 @@ class ErrorUi extends Component {
 
   render() {
     if(this.state.hasError){
-        return <h1>Something went wrong!!</h1>
+        return (
+        <><center>
+        <img src={error} alt="" width="1000" height="700" />
+        </center>
+        </>
+        )
     }
     return this.props.children
   }
