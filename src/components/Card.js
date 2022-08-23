@@ -2,15 +2,19 @@ import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContextProvider";
 
+import * as cartActions from "../context/cartAction";
+
 const Card = ({ data }) => {
-  const {addToCart,removeData} = useContext(CartContext)
+  const {dispatch} = useContext(CartContext);
+
+  const { addToCart } = cartActions;
   const [buttonText, setButtonText] = useState('Add to cart');
 
   return (
     <>
       <div className="card">
         <center>
-          <button onClick={() => removeData(data)}>X</button>
+          {/* <button onClick={() => removeData(data)}>X</button> */}
           <br></br>
           <Link to={"/shop/" + data.id}>
             {" "}
@@ -23,7 +27,8 @@ const Card = ({ data }) => {
           </div>
           {/* <button onClick={() => addToCart(data)} >Add to cart</button> */}
           <button onClick={() => {
-            addToCart(data);
+            // addToCart(data);
+            dispatch(addToCart(data));
             setButtonText('Added to cart');
           }} 
         >{buttonText}</button>
