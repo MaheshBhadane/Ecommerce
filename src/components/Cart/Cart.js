@@ -1,12 +1,14 @@
 import React, { Fragment, useState, useEffect,useContext } from "react";
 import CartItem from "./CartItem";
-import { CartContext } from "../context/CartContextProvider";
+import { CartContextProvider } from "../../context/CartContextProvider";
+import { ProductContextProvider } from "../../context/ProductContextProvider";
 
-const Cart = ({ products }) => {
+const Cart = () => {
   const [classActive, toggleClass] = useState(false);
   const [sum, setSum] = useState(0);
+  const {products} = useContext(ProductContextProvider)
 
-  const {changeQuantity} = useContext(CartContext)
+  const {changeQuantity} = useContext(CartContextProvider)
 
   const toggleButton = () => {
     toggleClass(!classActive);

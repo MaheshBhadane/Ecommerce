@@ -1,9 +1,20 @@
-import React, { createContext,useState } from "react";
+import React, { useEffect,createContext,useState } from "react";
 
-export const ProductContext = createContext();
+export const ProductContextProvider = createContext();
 
 const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
+
+  const getUsers = async () => {
+    const response =await fetch('https://fakestoreapi.com/products?limit');
+    setProducts(await response.json());
+    return setProducts
+  }
+
+  useEffect(() => {
+     getUsers();
+  },[])
+
  
   const sortProducts = (method) => {
     const array = products;
@@ -23,9 +34,9 @@ const Context = ({ children }) => {
   };
 
   return(
-     <ProductContext.Provider value={{products, setProducts, sortProducts}}>
+     <ProductContextProvider.Provider value={{products, setProducts, sortProducts}}>
       {children}
-      </ProductContext.Provider>
+      </ProductContextProvider.Provider>
   )
 };
 

@@ -1,28 +1,25 @@
 import React, { useEffect, useContext } from "react";
 import "./App.css";
-import Products from "./components/Products";
-import Cart from "./components/Cart";
-import filterList from "./components/filterList";
+import Products from "./components/Cart/Products";
+import Cart from "./components/Cart/Cart";
+import filterList from "./components/FilterList/filterList";
 import { Route, Switch } from "react-router-dom";
-import Admin from "./components/Navbar/Admin";
+import Admin from "./components/pages/Admin";
 import Navbar from "./components/Navbar/Navbar";
-import Shop from "./components/Navbar/Shop";
-import Home from "./components/Navbar/Home";
-import Error from "./components/Navbar/Error";
-import ShopDetail from "./components/Navbar/ShopDetail";
-import background from "./placeholder.png";
-import { ProductContext } from "./context/ProductContext";
-import { CartContext } from "./context/CartContextProvider";
+import Shop from "./components/pages/Shop";
+import Hero from "./components/Hero/Hero";
+import Error from "./components/pages/Error";
+import ShopDetail from "./components/pages/ShopDetail";
+import background from "./assests/placeholder.png";
+import { ProductContextProvider } from "./context/ProductContextProvider";
+import { CartContextProvider } from "./context/CartContextProvider";
 import ErrorUi from "./ErrorUi";
-// import Hero from "./Hero"
 
 const App = () => {
 
-  const {products, setProducts} = useContext(ProductContext)
-  // const [products, setProducts] = useState([]);
-  
-  const {cart} = useContext(CartContext)
-  //const [cart, setCart] = useState([]);
+  const {products, setProducts} = useContext(ProductContextProvider)
+
+  const {cart} = useContext(CartContextProvider)
 
   useEffect(() => {
     setProducts(filterList([], null));
@@ -39,12 +36,10 @@ const App = () => {
         }}
       >
         <ErrorUi>
-          {/* <Hero heroname="mahesh" />
-           <Hero heroname="rahul" />  */}
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Hero />
             <Products products={products}/>
             <Cart products={cart}  />
           </Route>

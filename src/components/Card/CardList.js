@@ -1,9 +1,9 @@
 import React, { useContext,Fragment } from "react";
 import Card from "./Card";
-import { ProductContext } from "../context/ProductContext";
+import { ProductContextProvider } from "../../context/ProductContextProvider";
 
 const CardList = () => {
-  const {products} = useContext(ProductContext)
+  const {products} = useContext(ProductContextProvider)
 
   return (
     <Fragment>

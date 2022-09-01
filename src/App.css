@@ -65,6 +65,8 @@ body {
   border: 1px solid #cccccc;
   border-radius: 4px;
   padding: 14px 10px;
+  height: 450px;
+  width: 300px;
 }
 
 .card-title {

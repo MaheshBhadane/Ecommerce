@@ -1,10 +1,10 @@
 import React, { useState, useContext} from "react";
-import CardList from "./CardList";
-import { ProductContext } from "../context/ProductContext";
+import CardList from "../Card/CardList";
+import { ProductContextProvider } from "../../context/ProductContextProvider";
 
 const Products = () => {
 
-  const {sortProducts} = useContext(ProductContext)
+  const {sortProducts} = useContext(ProductContextProvider)
   const [value, setValue] = useState("Select");
 
   const setList = (e) => {

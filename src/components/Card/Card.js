@@ -1,9 +1,9 @@
 import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContextProvider";
+import { CartContextProvider } from "../../context/CartContextProvider";
 
 const Card = ({ data }) => {
-  const {addToCart,removeData} = useContext(CartContext)
+  const {addToCart,removeData} = useContext(CartContextProvider)
   const [buttonText, setButtonText] = useState('Add to cart');
 
   return (
@@ -14,7 +14,7 @@ const Card = ({ data }) => {
           <br></br>
           <Link to={"/shop/" + data.id}>
             {" "}
-            <img src={data.url} className="card-image" alt="product" />{" "}
+            <img src={data.image} className="card-image" alt="product" />{" "}
           </Link>
           <div> {data.title} </div>
           <div>

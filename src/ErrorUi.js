@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import error from './ErrorBoundary.gif'
+import error from './assests/ErrorBoundary.gif'
 
 class ErrorUi extends Component {
 

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import products from "../products.json";
+import products from "../FilterList/products.json";
 import "./MainForm.css";
 
 const MainForm = () => {
